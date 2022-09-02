@@ -8,6 +8,9 @@ def reset_artists_table
 end
 
 describe ArtistRepository do
+  after(:all) do
+    reset_artists_table
+  end
   before(:each) do 
     reset_artists_table
   end
@@ -30,7 +33,7 @@ describe ArtistRepository do
     expect(artist.name).to eq('Taylor Swift')
   end
 
-  it 'creates an album' do
+  it 'creates an artist' do
     repo = ArtistRepository.new
 
     artist = Artist.new
